@@ -1,0 +1,65 @@
+﻿@model IEnumerable<QLQUANCATTOC.Models.ThanhToan1>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SoTienThanhToan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgayThanhToan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhuongThucThanhToan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TenCuaHang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaCuaHangNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaKhachHangNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoTienThanhToan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayThanhToan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhuongThucThanhToan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenCuaHang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaCuaHangNavigation.MaCuaHang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaKhachHangNavigation.MaKhachHang)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.MaThanhToan">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.MaThanhToan">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.MaThanhToan">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
